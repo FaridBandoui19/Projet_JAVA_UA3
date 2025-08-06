@@ -1,0 +1,2 @@
+Akram :  gestion des valeurs manquantes, standardisation des textes, gestion des erreurs.
+Farid : Creation est gestion GitHub, lecture/écriture CSV, organisation des classes, documentation.
