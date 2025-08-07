@@ -1,5 +1,12 @@
 Akram :  Création de la classe BasicRowCleaner, de la classe CsvCleaner ainsi que de l’interface IRowCleaner, puis instanciation dans Main.java des objets nécessaires pour relier le nettoyeur de lignes et le nettoyeur de fichier.
  
-Farid : Creation est gestion GitHub, lecture/écriture CSV, organisation des classes, documentation.
 
-Farid: Creation des interface ICsvWriter, ICsvReader avec les classes CsvFileWriter, CsvFileReader, VisualiserCsv. Creation des objets reader et writer dans le main.
+
+Farid: 
+- Creation est gestion GitHub, 
+- Creation des interface ICsvWriter, 
+- ICsvReader avec les classes CsvFileWriter, 
+- CsvFileReader, 
+- VisualiserCsv
+- Creation des objets reader et writer dans le main.
+-documentation
