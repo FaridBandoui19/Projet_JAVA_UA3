@@ -25,4 +25,22 @@ Ce projet vise à développer un outil Java pour nettoyer un fichier CSV : ges
 
 ## Utilisation
 
-Pour utiliser cet outil de nettoyage CSV, placez toutes les interfaces et classes fournies dans le même projet Java. Dans Main.java et dans VisualiseCsv.java, modifiez les variables inputPath et outputPath avec le chemin de votre fichier CSV et celui du fichier de sortie souhaité. Exécutez le programme : il lira automatiquement le CSV, remplacera ou supprimera les valeurs manquantes, standardisera le texte et enregistrera les données nettoyées dans le nouveau fichier.
+Pour utiliser cet outil de nettoyage CSV, suivez ces étapes :
+
+- Placez les fichiers : Mettez toutes les interfaces et classes fournies dans le même projet Java.
+
+- Configurez les chemins de fichiers :
+
+    - Ouvrez Main.java et VisualiseCsv.java.
+
+    - Modifiez les variables inputPath et outputPath avec les chemins de votre fichier CSV d'entrée et du fichier de sortie souhaité.
+
+- Exécutez le programme : Lancez l'exécution du programme. Il effectuera les actions suivantes :
+
+    - Lecture automatique du fichier CSV.
+
+    - Remplacement ou suppression des valeurs manquantes.
+
+    - Standardisation du texte.
+
+    - Enregistrement des données nettoyées dans le nouveau fichier.
