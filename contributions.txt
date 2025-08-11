@@ -1,4 +1,7 @@
-Akram :  Création de la classe BasicRowCleaner, de la classe CsvCleaner ainsi que de l’interface IRowCleaner, puis instanciation dans Main.java des objets nécessaires pour relier le nettoyeur de lignes et le nettoyeur de fichier.
+Akram :  Création de la classe BasicRowCleaner,
+         Création de la classe CsvCleaner 
+         Création de l’interface IRowCleaner
+         instanciation dans Main.java des objets nécessaires pour relier le nettoyeur de lignes et le nettoyeur de fichier.
  
 
 
