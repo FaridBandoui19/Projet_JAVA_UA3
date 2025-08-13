@@ -1,46 +1,115 @@
-# Projet Java : Nettoyage de données CSV
+# 🛠 Projet Java – Outil de Nettoyage et Visualisation de Données CSV
+## 👥 Membres du groupe
+Farid Bandoui – Lecture et visualisation des données, rédaction du rapport.
 
-## Membres du groupe
-- Farid Bandoui
-- Akram Zerdaoui
+Akram Zerdaoui – Implémentation du nettoyage et de l’écriture, organisation du code.
 
-## Description
-Ce projet vise à développer un outil Java pour nettoyer un fichier CSV : gestion des valeurs manquantes, standardisation des textes et sauvegarde.
+## 📌 Description
+Ce projet a pour objectif de développer un outil Java permettant de :
 
-## Structure du projet
-- `Farid.txt` : Dossier personnel de Farid
-- `Akram.txt` : Dossier personnel d’Akram
-- `contributions.txt` : Répartition des tâches
-- `README.md` : Ce fichier de description du projet.
-- `donnes_brutes.csv`: fichier CSV, généré pour le projet.
-- `Main.java`: Point d’entrée du programme qui crée les objets nécessaires et lance le nettoyage du CSV.
-- `ICsvReader.java`: Interface qui définit la méthode pour lire un fichier CSV.
-- `ICsvWriter.java`: Interface qui définit la méthode pour écrire un fichier CSV.
-- `IRowCleaner.java`: Interface qui définit la méthode pour nettoyer une seule ligne du CSV.
-- `CsvFileReader.java`: Implémentation de ICsvReader qui lit un fichier CSV ligne par ligne et retourne les données.
-- `CsvFileWriter.java`: Implémentation de ICsvWriter qui écrit les données dans un fichier CSV.
-- `CsvCleaner.java`: Classe qui orchestre la lecture, le nettoyage et l’écriture du CSV.
-- `BasicRowCleaner.java`: Implémentation de IRowCleaner qui remplace ou supprime les valeurs manquantes et standardise le texte.
-- `VisualiserCsv.java` : Classe responsable de l'affichage ou de la visualisation des données CSV.
+Lire un fichier CSV ligne par ligne.
 
-## Utilisation
+Détecter et remplacer les valeurs manquantes.
 
-Pour utiliser cet outil de nettoyage CSV, suivez ces étapes :
+Standardiser les textes (par exemple, en majuscules).
 
-- Placez les fichiers : Mettez toutes les interfaces et classes fournies dans le même projet Java.
+Sauvegarder les données nettoyées dans un nouveau fichier.
 
-- Configurez les chemins de fichiers :
+Visualiser les données brutes directement dans la console.
 
-    - Ouvrez Main.java et VisualiseCsv.java.
+Il illustre également de bonnes pratiques de conception comme :
 
-    - Modifiez les variables inputPath et outputPath avec les chemins de votre fichier CSV d'entrée et du fichier de sortie souhaité.
+Séparation des responsabilités
 
-- Exécutez le programme : Lancez l'exécution du programme. Il effectuera les actions suivantes :
+Utilisation d’interfaces
 
-    - Lecture automatique du fichier CSV.
+Injection de dépendances (principe DIP de SOLID)
 
-    - Remplacement ou suppression des valeurs manquantes.
+## 📂 Structure du projet
+```.
+├── donnees_brutes.csv        # Fichier CSV d'entrée
+├── donnees_nettoyees.csv     # Fichier CSV généré après nettoyage
+├── Main.java                 # Point d'entrée du programme
+├── VisualiserCsv.java        # Affichage et comptage des valeurs manquantes
+├── ICsvReader.java           # Interface pour la lecture CSV
+├── ICsvWriter.java           # Interface pour l'écriture CSV
+├── IRowCleaner.java          # Interface pour le nettoyage d'une ligne
+├── CsvFileReader.java        # Implémentation de ICsvReader
+├── CsvFileWriter.java        # Implémentation de ICsvWriter
+├── CsvCleaner.java           # Orchestration lecture → nettoyage → écriture
+├── BasicRowCleaner.java      # Nettoyage basique (valeurs manquantes / majuscules)
+├── Farid.txt                 # Dossier personnel
+├── Akram.txt                 # Dossier personnel
+└── contributions.txt         # Répartition des tâches
+```
 
-    - Standardisation du texte.
+## 🔄 Schéma de fonctionnement
+```
+flowchart TD
+    A[donnees_brutes.csv] -->|Lecture| B[CsvFileReader]
+    B -->|Lignes en mémoire| C[BasicRowCleaner]
+    C -->|Lignes nettoyées| D[CsvFileWriter]
+    D --> E[donnees_nettoyees.csv]
 
-    - Enregistrement des données nettoyées dans le nouveau fichier.
+```
+
+## 🚀 Utilisation
+### 1. Préparer le projet
+Placer tous les fichiers .java et le fichier CSV d'entrée dans le même projet Java.
+
+Vérifier que le projet compile correctement dans votre IDE ou en ligne de commande.
+
+### 2. Configurer les chemins
+Dans Main.java et VisualiserCsv.java, modifier :
+```
+String inputPath = "chemin/vers/donnees_brutes.csv";
+String outputPath = "chemin/vers/donnees_nettoyees.csv";
+
+```
+### 3. Compiler et exécuter
+#### En ligne de commande :
+```
+javac *.java
+java Main
+
+```
+
+#### En IDE :
+
+Ouvrir Main.java et exécuter.
+
+## 📊 Exemple d’entrée/sortie
+### Fichier CSV d'entrée (donnees_brutes.csv) :
+```
+Nom,Pays,Score
+Jean,France,15
+Marie,,20
+Ali,N/A,17
+
+```
+
+### Fichier CSV nettoyé (donnees_nettoyees.csv) :
+```
+NOM,PAYS,SCORE
+JEAN,FRANCE,15
+MARIE,INCONNU,20
+ALI,INCONNU,17
+
+```
+
+## ⚠️ Limitations actuelles
+Le découpage CSV se base sur split(",") et ne gère pas les champs contenant des virgules entre guillemets.
+
+L’encodage utilisé est celui par défaut du système (préférer UTF-8 pour éviter les problèmes avec les caractères spéciaux).
+
+Les chemins sont actuellement codés en dur.
+
+### 📌 Améliorations possibles
+Utiliser un parseur CSV robuste (par ex. OpenCSV) pour gérer les cas complexes.
+
+Passer les chemins de fichiers en arguments de ligne de commande.
+
+Ajouter des options de nettoyage plus avancées (normalisation par colonne, suppression de doublons, etc.).
+
+Gérer l'encodage en UTF-8 de manière explicite.
+
